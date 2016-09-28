@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Auto-complete Functionality</title>
+  <script src="bower_components/angular/angular.min.js"></script>
+  <script src="script.js"></script>
+  <script src="countryService.js"></script>
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style/common.css">
+</head>
+
+<body ng-controller="MyController as ctrl">
+  <!-- watch will not work, as if data is retrieved from back-end we 
+	don't want auto-complete to show -->
+  <div class="main-container">
+    <input class="form-control" type="text" ng-model="ctrl.person.country" ng-change="ctrl.changeCountry(ctrl.person.country)" placeholder="Country name">
+    <ul class="autocomplete-list">
+      <li ng-repeat="country in ctrl.filteredCountryList" ng-click="ctrl.selectedCountry(country)">{{country}}</li>
+    </ul>
+  </div>
+</body>
+
+</html>
